@@ -10,22 +10,17 @@ def isPrime(n):
     Returns: True is so, False otherwise
     """
     if n == 2 or n == 3:
-        print('{}prime')
         return True
     if n < 2 or n % 2 == 0:
-        print('{} not prime')
         return False
     if n < 9:
-        print('{} prime')
         return True
     if n % 3 == 0:
-        print('{} Not prime')
         return False
     r = int(n ** 0.5)
 
     f = 5
     while f <= r:
-        print('\t', f)
         if n % f == 0:
             return False
         if n % (f + 2) == 0:
