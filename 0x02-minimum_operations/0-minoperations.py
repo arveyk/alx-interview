@@ -36,6 +36,8 @@ def minOperations(n):
         n: the number to evaluate
     Return: the number of operations to carry out
     """
+    if n < 1:
+        return 0
     i = 2
     prime_fact = []
     sqr_root = n ** 0.5
