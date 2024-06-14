@@ -20,13 +20,13 @@ def isPrime(n):
         return False
     r = int(n ** 0.5)
 
-    f = 5
+    f = 3
     while f <= r:
         if n % f == 0:
             return False
         if n % (f + 2) == 0:
             return False
-        f += 6
+        f += 1
         return True
 
 
@@ -53,9 +53,6 @@ def minOperations(n):
                 while n % i == 0:
                     prime_fact.append(i)
                     n /= i
-        if n == i:
-            prime_fact.append(n)
-            break
         i += 1
     total = 0
     length = len(prime_fact)
