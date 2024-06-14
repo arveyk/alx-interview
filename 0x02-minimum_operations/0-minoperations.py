@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ Module for Minimum operations function
 """
+from math import floor
 
 
 def isPrime(n):
@@ -40,17 +41,21 @@ def minOperations(n):
         return 0
     i = 2
     prime_fact = []
-    sqr_root = n ** 0.5
+    sqr_root = floor(n * 0.5)
     while i <= (sqr_root):
+        """
         if n / i == 1:
             prime_fact.append(i)
             break
+        """
         if isPrime(i) is True:
             if n % i == 0:
-                p = i
-                while n % p == 0:
-                    prime_fact.append(p)
-                    n /= p
+                while n % i == 0:
+                    prime_fact.append(i)
+                    n /= i
+        if n == i:
+            prime_fact.append(n)
+            break
         i += 1
     total = 0
     length = len(prime_fact)
