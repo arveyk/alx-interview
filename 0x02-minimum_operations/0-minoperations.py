@@ -43,11 +43,9 @@ def minOperations(n):
     prime_fact = []
     sqr_root = floor(n * 0.5)
     while i <= (sqr_root):
-        """
         if n / i == 1:
             prime_fact.append(i)
             break
-        """
         if isPrime(i) is True:
             if n % i == 0:
                 while n % i == 0:
