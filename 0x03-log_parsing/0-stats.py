@@ -22,9 +22,9 @@ file_size = 0
 
 try:
     for line in sys.stdin:
-        print("File size: {}".format(file_size))
         striped = line.split(" ")
         file_size += int(striped[len(striped) - 1])
+        print("File size: {}".format(file_size))
         status = striped[7]
         for key, value in status_dict.items():
             if status == key:
