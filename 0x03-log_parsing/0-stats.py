@@ -17,7 +17,7 @@ status_dict = {
                 "500": 0
                 }
 count = 0
-
+interrupt = False
 file_size = 0
 
 try:
@@ -30,9 +30,17 @@ try:
             if status == key:
                 status_dict[key] += 1
         for key in status_dict:
+            check = int(status)
             if status_dict[key] == 0:
                 continue
             print("{}: {}".format(key, status_dict[key]))
+except KeyboardInterrupt as e:
+    raise e
+    """print("File size: {}".format(file_size))
+    for key in status_dict:
+        if status_dict[key] == 0:
+            continue
+        print("{}: {}".format(key, status_dict[key]))"""
 
 finally:
     print("File size: {}".format(file_size))
