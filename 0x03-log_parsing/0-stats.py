@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """
+Log parsing module, processing of inputs from command line
 """
 import signal
 import sys
