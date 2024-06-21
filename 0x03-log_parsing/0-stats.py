@@ -53,11 +53,14 @@ try:
             print("{}: {}".format(key, status_dict[key]))
 
 except KeyboardInterrupt as e:
+    print(e)
+    """
     print("File size: {}".format(file_size))
     for key in status_dict:
         if status_dict[key] == 0:
             continue
         print("{}: {}".format(key, status_dict[key]))
+        """
 """
 finally:
     print("File size: {}".format(file_size))
