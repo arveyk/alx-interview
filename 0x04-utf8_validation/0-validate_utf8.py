@@ -1,30 +1,33 @@
 #!/usr/bin/python3
-""" Module for UTF8 validation
+"""
+Second solution
+first solve by AlgoMonster
+second by prepfortech.io
 """
 
-
 def validUTF8(data):
-    """ Function to check if a data set represents a valid UTF-8 encoding
+    """ Function to validate if a list represents a UTF-8 encoding
     Args:
-        data: list to be validated
-    Returns: True if it is, false if otherwise
+        data: list of of integers
+    Returns: True if to does, False if not
     """
-    byte_Count = 0
-    for element in data:
-        if byte_Count > 0:
-            if element >> 6 != 0b10:
-                return False
-            byte_Count -= 1
-        else:
-            if element >> 7 == 0:
-                byte_Count = 0
-            elif element >> 5 == 0b110:
-                byte_Count = 1
-            elif element >> 4 == 0b1110:
-                byte_Count = 2
-            elif element >> 3 == 0b11110:
-                byte_Count = 3
-            else:
-                return False
+    byteCnt = 0
+    mask1 = 1 << 7
+    mask2 = 1 << 6
 
-    return byte_Count == 0
+    for elem in data:
+        mask = 1 << 7
+        if byteCnt == 0:
+            while mask & elem:
+                print("mask{} anded with elem{} : {}".format(mask, elem, mask & elem))
+                byteCnt += 1
+                mask >>= 1
+            if byteCnt == 0:
+                continue
+            if byteCnt == 1 or byteCnt > 4:
+                return false
+        else:
+            if not (elem & mask1 and not (elem & mask2)):
+                return False
+            byteCnt -= 1
+    return byteCnt == 0
