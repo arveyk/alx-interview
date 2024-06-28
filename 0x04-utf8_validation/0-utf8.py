@@ -14,15 +14,14 @@ def validUTF8(data):
         mask = 1 << 7
         if byteCnt == 0:
             while mask & elem:
-                print("mask{} anded with elem{} : {}".format(mask, elem, mask & elem))
                 byteCnt += 1
                 mask >>= 1
             if byteCnt == 0:
                 continue
             if byteCnt == 1 or byteCnt > 4:
                 return false
-        else:
-            if not (elem & mask1 and not (elem & mask2)):
-                return False
-            byteCnt -= 1
+    else:
+        if not (elem & mask1 and not (elem & mask2)):
+            return False
+        byteCnt -= 1
     return byteCnt == 0
