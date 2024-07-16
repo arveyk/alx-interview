@@ -10,7 +10,6 @@ def rotate_2d_matrix(matrix):
     Returns: no return value
     """
     size = len(matrix)
-    print(size)
     for x in range(0, int(size / 2)):
         for y in range(x, size - x - 1):
             temp = matrix[x][y]
