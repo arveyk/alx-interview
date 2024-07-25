@@ -13,8 +13,6 @@ def makeChange(coins: List[int], total: int) -> int:
     """
     if total <= 0:
         return 0
-    if (len(coins)) == 0):
-        return -1
     coins.sort()
     listLength = len(coins) - 1
 
