@@ -12,3 +12,20 @@ def island_perimeter(grid):
         perimeter of described island
     """
 
+    ground = []
+    perimeter = 0
+    for x in range(1, len(grid) - 1):
+        for y in range(1, len(grid) - 1):
+            if grid[x][y] == 1:
+                if (x, y) in ground:
+                    continue
+                ground.append((x, y))
+                if grid[x - 1][y] == 0:
+                    perimeter += 1
+                if grid[x][y - 1] == 0:
+                    perimeter += 1
+                if grid[x][y + 1] == 0:
+                    perimeter += 1
+                if grid[x + 1][y] == 0:
+                    perimeter += 1
+    return perimeter
