@@ -20,8 +20,8 @@ def island_perimeter(grid):
     for x in range(width):
         for y in range(length):
             if grid[x][y] == 1:
-                if (x, y) in ground:
-                    continue
+                #if (x, y) in ground:
+                #    continue
                 ground.append((x, y))
                 if grid[x - 1][y] == 0:
                     perimeter += 1
