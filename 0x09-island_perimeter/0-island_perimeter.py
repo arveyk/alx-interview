@@ -14,8 +14,8 @@ def island_perimeter(grid):
 
     ground = []
     perimeter = 0
-    for x in range(1, len(grid) - 1):
-        for y in range(1, len(grid) - 1):
+    for x in range(1, len(grid)):
+        for y in range(1, len(grid)):
             if grid[x][y] == 1:
                 if (x, y) in ground:
                     continue
