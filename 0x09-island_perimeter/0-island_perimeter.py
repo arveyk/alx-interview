@@ -33,18 +33,23 @@ def island_perimeter(grid):
                     if grid[x + 1][y] == 0:
                         perimeter += 1
             if x == 0:
+                if (x, y) in ground:
+                    continue
+                ground.append((x, y))
                 if y == 0:
                     if grid[x][y] == 1:
                         if grid[x + 1][y] == 0:
                             perimeter += 1
                         if grid[x][y + 1] == 0:
                             perimeter += 1
+                        perimeter += 2
                 if y == length - 1:
                     if grid[x][y] == 1:
                         if grid[x + 1][y] == 0:
                             perimeter += 1
                         if grid[x][y - 1] == 0:
                             perimeter += 1
+                        perimeter += 2
                 if y > 0 and y < length - 1:
                     if grid[x][y] == 1:
                         if grid[x][y + 1] == 0:
@@ -53,20 +58,32 @@ def island_perimeter(grid):
                             perimeter += 1
                         if grid[x + 1][y] == 0:
                             perimeter += 1
+                        perimeter += 1
             if x == width - 1:
                 if y == 0:
+                    if (x, y) in ground:
+                        continue
+                    ground.append((x, y))
                     if grid[x][y] == 1:
                         if grid[x - 1][y] == 0:
                             perimeter += 1
                         if grid[x][y + 1] == 0:
                             perimeter += 1
+                        perimeter += 2
                 if y == length - 1:
+                    if (x, y) in ground:
+                        continue
+                    ground.append((x, y))
                     if grid[x][y] == 1:
                         if grid[x - 1][y] == 0:
                             perimeter += 1
                         if grid[x][y - 1] == 0:
                             perimeter += 1
+                        perimeter += 2
                 if y > 0 and y < length - 1:
+                    if (x, y) in ground:
+                        continue
+                    ground.append((x, y))
                     if grid[x][y] == 1:
                         if grid[x][y - 1] == 0:
                             perimeter += 1
@@ -74,20 +91,32 @@ def island_perimeter(grid):
                             perimeter += 1
                         if grid[x][y + 1] == 0:
                             perimeter += 1
-                if x > 0 and x < width - 1:
-                    if y == 0:
+                        perimeter += 1
+            if y == 0:
+                if (x > 0 and x < width - 1):
+                    if (x, y) in ground:
+                        continue
+                    ground.append((x, y))
+                    if grid[x][y] == 1:
                         if grid[x - 1][y] == 0:
                             perimeter += 1
                         if grid[x][y + 1] == 0:
                             perimeter += 1
                         if grid[x + 1][y] == 0:
-                            perimeter += 1
-                    if y == length - 1:
+                                perimeter += 1
+                        perimeter += 1
+                        
+            if y == length - 1:
+                if (x > 0 and x < width - 1):
+                    if (x, y) in ground:
+                        continue
+                    ground.append((x, y))
+                    if grid[x][y] == 1:
                         if grid[x - 1][y] == 0:
                             perimeter += 1
                         if grid[x][y - 1] == 0:
                             perimeter += 1
                         if grid[x + 1][y] == 0:
                             perimeter += 1
-                        
+                        perimeter += 1
     return perimeter
