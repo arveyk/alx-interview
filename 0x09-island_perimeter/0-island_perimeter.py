@@ -103,9 +103,8 @@ def island_perimeter(grid):
                         if grid[x][y + 1] == 0:
                             perimeter += 1
                         if grid[x + 1][y] == 0:
-                                perimeter += 1
+                            perimeter += 1
                         perimeter += 1
-                        
             if y == length - 1:
                 if (x > 0 and x < width - 1):
                     if (x, y) in ground:
