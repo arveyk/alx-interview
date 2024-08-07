@@ -12,6 +12,8 @@ def isWinner(x, nums):
         Winner; Ben or Maria or None"""
     Maria = 0
     Ben = 0
+    b_turn = False
+    m_turn = True
     if x == 0 or type(nums) != list:
         return None
     if len(nums) == 0:
@@ -21,16 +23,30 @@ def isWinner(x, nums):
     primeGame = []
     while rounds < x:
         primeGame = ErastosPrime(nums[rounds])
+        if (nums[rounds] <= 2):
+            if b_turn is False:
+                Ben += 1
+                b_turn = True
+                m_turn = False
+            else:
+                Maria += 1
+                b_turn = False
+                m_turn = True
         if len(primeGame) % 2 == 0:
             Ben += 1
+            b_turn = True
+            m_turn = False
         else:
             Maria += 1
+            m_turn = True
+            b_turn = False
         rounds += 1
     if Maria > Ben:
         return 'Maria'
     if Maria < Ben:
         return 'Ben'
-    return None
+    if Maria == Ben:
+        return None
 
 
 def ErastosPrime(num):
