@@ -2,6 +2,7 @@
 """ IsWinner file
 """
 
+
 def isWinner(x, nums):
     """ Determine the winner in this game
     Args:
@@ -31,6 +32,7 @@ def isWinner(x, nums):
         return 'Ben'
     return None
 
+
 def ErastosPrime(num):
     """ Function to generate primes from 2 to given number
     Args:
@@ -43,7 +45,7 @@ def ErastosPrime(num):
         primes = [True for i in range(num + 1)]
         p = 2
         while (p * p <= num):
-            if (primes[p] == True):
+            if (primes[p] is True):
                 for y in range(p * p, num + 1, p):
                     primes[y] = False
             p += 1
