@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-
+""" Module for lockBox task
+"""
 
 def canUnlockAll(boxes):
     """Function to determine if all boxes can be unlocked
