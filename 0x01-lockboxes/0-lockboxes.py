@@ -2,6 +2,7 @@
 """ Module for lockBox task
 """
 
+
 def canUnlockAll(boxes):
     """Function to determine if all boxes can be unlocked
     Args:
@@ -10,7 +11,9 @@ def canUnlockAll(boxes):
     """
     unlocked = []
     allBoxes = []
-    for box in range(len(boxes)):
+
+    noOfboxes = len(boxes)
+    for box in range(noOfboxes):
         allBoxes.append(box)
     if (isinstance(boxes, list)):
         unlocked = boxes[0] + [0]
@@ -20,10 +23,10 @@ def canUnlockAll(boxes):
                 unlocked = list(set(unlocked))
                 unlocked2 = []
                 for elem in unlocked:
-                    unlocked2 += boxes[elem]
+                    if elem < noOfboxes:
+                        unlocked2 += boxes[elem]
                 unlocked += unlocked2
-                unlocked = list(set(unlocked))
 
-    if allBoxes == unlocked:
+    if allBoxes == list(set(unlocked)):
         return True
     return False
