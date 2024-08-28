@@ -7,15 +7,23 @@ def canUnlockAll(boxes):
         boxes: a list of lists to be assessed
     Returns: true if all can be unlocked, false if otherwise
     """
-    keys = []
-    count = 0
-    for item in boxes:
-        if (item isinstance list):
-            for index in range(len(item)):
-                if len(item) == 0 and count < len(boxes):
-                    return False
-
-        count += 1
-
-    return True
+    unlocked = []
+    allBoxes = []
+    for box in range(len(boxes)):
+        allBoxes.append(box)
+    if (isinstance(boxes, list)):
+        unlocked = boxes[0] + [0]
+        for index in range(1, len(boxes)):
+            if index in unlocked:
+                unlocked += boxes[index]
+                unlocked = list(set(unlocked))
+                unlocked2 = []
+                for elem in unlocked:
+                    unlocked2 += boxes[elem]
+                unlocked += unlocked2
+                unlocked = list(set(unlocked))
+            
+    if allBoxes == unlocked:
+        return True
+    return False
 
