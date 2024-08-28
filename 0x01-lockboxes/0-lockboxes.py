@@ -26,8 +26,19 @@ def canUnlockAll(boxes):
                     if elem < noOfboxes:
                         unlocked2 += boxes[elem]
                 unlocked += unlocked2
+                '''
+                unlocked2 = boxes[index]
+                chest = []
+                for elem in unlocked2:
+                    if elem < noOfboxes:
+                        chest += boxes[elem]
+                unlocked += (unlocked2 + chest)
+                unlocked = list(set(unlocked))
+                '''
+
     unlocked = list(set(unlocked))
-    for key in allBoxes:
+    '''for key in allBoxes:
         if key not in unlocked:
-            return False
-    return True
+            return False'''
+
+    return set(allBoxes).issubset(set(unlocked))
