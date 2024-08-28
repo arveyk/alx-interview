@@ -27,6 +27,7 @@ def canUnlockAll(boxes):
                         unlocked2 += boxes[elem]
                 unlocked += unlocked2
 
-    if allBoxes == list(set(unlocked)):
-        return True
-    return False
+    for key in allBoxes:
+        if key not in list(set(unlocked)):
+            return False
+    return True
